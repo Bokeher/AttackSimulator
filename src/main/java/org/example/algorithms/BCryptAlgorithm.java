@@ -10,14 +10,13 @@ public class BCryptAlgorithm implements Algorithm {
     }
 
     public BCryptAlgorithm() {
-        cost = 10;
+        this.cost = 10;
     }
 
     @Override
     public String hash(String text) {
-        return BCrypt.hashpw(text, BCrypt.gensalt());
+        return BCrypt.hashpw(text, BCrypt.gensalt(cost));
     }
-
 
     public boolean verify(String text, String hash) {
         return BCrypt.checkpw(text, hash);
