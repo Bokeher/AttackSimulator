@@ -1,4 +1,4 @@
-Symulator ataków na hasła - słownikowy i brute-force:
+Symulator ataków na hasła — słownikowy i brute-force:
 Narzędzie demonstrujące ataki słownikowe i brute-force na hashe MD5/SHA-1/bcrypt.
 Pomiar czasu łamania, analiza odporności funkcji skrótu, demonstracja "solenia" (salt).
 Raport z wnioskami.
@@ -8,8 +8,8 @@ Zrobione:
 - SHA1
 - BCrypt
 - brute-force
-- slownikowy atak
-- pomiar czasu lamania
+- słownikowy atak
+- pomiar czasu łamania
 
 TODO: 
 - demonstracja solenia

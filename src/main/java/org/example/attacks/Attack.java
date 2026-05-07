@@ -2,7 +2,6 @@ package org.example.attacks;
 
 import org.example.algorithms.Algorithm;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface Attack {

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BCryptAlgorithmTest {
-    BCryptAlgorithm bCryptAlgorithm = new BCryptAlgorithm();
+    final BCryptAlgorithm bCryptAlgorithm = new BCryptAlgorithm();
 
     @Test
     void hash_shouldBeVerifiable() {

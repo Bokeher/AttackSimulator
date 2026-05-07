@@ -15,9 +15,7 @@ public class BCryptAlgorithm implements Algorithm {
 
     @Override
     public String hash(String text) {
-        String hash = BCrypt.hashpw(text, BCrypt.gensalt());
-
-        return hash;
+        return BCrypt.hashpw(text, BCrypt.gensalt());
     }
 
 
