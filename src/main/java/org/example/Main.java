@@ -1,10 +1,8 @@
 package org.example;
 
 import org.example.algorithms.Algorithm;
-import org.example.algorithms.MD5Algorithm;
 import org.example.attacks.Attack;
 import org.example.attacks.BruteForceAttack;
-import org.example.attacks.Charset;
 import org.example.attacks.DictionaryAttack;
 
 import java.io.InputStream;

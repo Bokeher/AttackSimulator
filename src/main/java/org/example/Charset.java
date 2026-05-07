@@ -1,4 +1,4 @@
-package org.example.attacks;
+package org.example;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
