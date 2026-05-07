@@ -15,30 +15,37 @@ public class BruteForceAttack implements Attack {
     public String crack(String hash, Algorithm algorithm) {
 
         for (int length = 1; length <= maxLength; length++) {
-            System.out.println("Sprawdzam o dlugosci: " + length);
+            System.out.println("Sprawdzam o długości: " + length);
 
-            StringBuilder sb = new StringBuilder();
+            int[] indices = new int[length];
+            char[] candidate = new char[length];
 
-            int charsetSize = charset.length;
-            long max = (long) Math.pow(charsetSize, length);
-
-            for (long i = 0; i < max; i++) {
-
-                sb.setLength(0); // reset buildera
-
-                long value = i;
-
-                for (int pos = 0; pos < length; pos++) {
-                    sb.append(charset[(int) (value % charsetSize)]);
-                    value /= charsetSize;
+            while (true) {
+                for (int i = 0; i < length; i++) {
+                    candidate[i] = charset[indices[i]];
                 }
 
-                String candidate = sb.reverse().toString(); // poprawna kolejność
+                String current = new String(candidate);
 
-                if(i % 2000 == 0) System.out.println(candidate);
+                if (algorithm.hash(current).equals(hash)) {
+                    return current;
+                }
 
-                if (algorithm.hash(candidate).equals(hash)) {
-                    return candidate;
+                int position = length - 1;
+
+                while (position >= 0) {
+                    indices[position]++;
+
+                    if (indices[position] < charset.length) {
+                        break;
+                    }
+
+                    indices[position] = 0;
+                    position--;
+                }
+
+                if (position < 0) {
+                    break;
                 }
             }
         }
