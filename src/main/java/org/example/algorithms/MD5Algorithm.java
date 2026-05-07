@@ -1,20 +1,25 @@
 package org.example.algorithms;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MD5Algorithm implements Algorithm {
-    @Override
-    public String hash(String text) {
-        MessageDigest md;
+    private final MessageDigest md;
 
+    public MD5Algorithm() {
         try {
-            md = MessageDigest.getInstance("MD5");
+            this.md = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
 
-        var hash = md.digest(text.getBytes());
+    @Override
+    public String hash(String text) {
+        md.reset();
+
+        byte[] hash = md.digest(text.getBytes(StandardCharsets.UTF_8));
 
         return java.util.HexFormat.of().formatHex(hash);
     }
