@@ -29,17 +29,17 @@ public class Hasher {
     }
 
     public String generateHash(String password) {
-        String salt = generateSalt(password);
+        String salt = generateSalt();
 
         if (algorithm instanceof BCryptAlgorithm bCrypt) {
             return bCrypt.hash(password);
         }
 
         String input = salt + password;
-        return salt + ":" + algorithm.hash(input);
+        return algorithm.hash(input);
     }
 
-    private String generateSalt(String password) {
+    private String generateSalt() {
         return switch (saltMode) {
             case NONE -> "";
             case FIXED -> fixedSalt;
