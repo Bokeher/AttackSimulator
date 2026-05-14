@@ -15,7 +15,7 @@ public class BruteForceAttack implements Attack {
     public String crack(String hash, Algorithm algorithm) {
 
         for (int length = 1; length <= maxLength; length++) {
-            System.out.println("Sprawdzam o długości: " + length);
+//            System.out.println("Sprawdzam o długości: " + length);
 
             int[] indices = new int[length];
             char[] candidate = new char[length];
